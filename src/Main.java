@@ -1,23 +1,23 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
-        String string1 = "Амиго";
-        String string2 = string1;
-        String string3 = new String(string1);
-        String same = "ссылки на строки одинаковые";
-        String different = "ссылки на строки разные";
-        if (string1 == string2){
-            System.out.println(same);
-        } else {
-            System.out.println(different);
-        } if (string2 == string3){
-            System.out.println(same);
-        } else {
-            System.out.println(different);
-        } if (string1 == string3){
-            System.out.println(same);
-        } else {
-            System.out.println(different);
+        Scanner sc = new Scanner(System.in);
+        boolean end = false;
+        int sum = 0;
+        while (!end) {
+            if (sc.hasNextInt()){
+                int num = sc.nextInt();
+                sum += num;
+            } else if (sc.hasNextLine()) {
+                String i = sc.nextLine();
+                if (i.equalsIgnoreCase("enter")){
+                    end = true;
+                }
+            }
         }
+        System.out.println(sum);
+        sc.close();
     }
 }
