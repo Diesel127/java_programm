@@ -1,23 +1,21 @@
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        double price = 256;
+        int totalMonths = 12;
 
-        Scanner sc = new Scanner(System.in);
-        boolean end = false;
-        int sum = 0;
-        while (!end) {
-            if (sc.hasNextInt()){
-                int num = sc.nextInt();
-                sum += num;
-            } else if (sc.hasNextLine()) {
-                String i = sc.nextLine();
-                if (i.equalsIgnoreCase("enter")){
-                    end = true;
-                }
+        double totalCost = 0;
+
+        // опишите условие цикла.
+        // в качестве переменной итерирования можно использовать переменную month
+        for (int i = 1; i <= 12; i++) {
+            if (i % 3 == 0) {
+                price = price / 2;
+                totalCost += price;
+            } else {
+                totalCost += price;
             }
         }
-        System.out.println(sum);
-        sc.close();
+        System.out.println("Общая стоимость за " + totalMonths + " месяцев: " + totalCost + " руб.");
     }
 }
