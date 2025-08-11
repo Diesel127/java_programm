@@ -1,22 +1,17 @@
 
 public class Main {
     public static void main(String[] args) {
-        double price = 256;
-        int totalMonths = 12;
 
-        double totalCost = 0;
 
-        // опишите условие цикла.
-        // в качестве переменной итерирования можно использовать переменную month
-        for (int i = 1; i <= 12; i++) {
-            if (i % 3 == 0) {
-                price = price / 2;
-                totalCost += price;
-            } else {
-                totalCost += price;
+
+        int days = 3; // количество дней, в которые Байт будет тренироваться
+        int run = 2; // число пробежек в день
+
+        for (int i = 1; i <= days; i++) { // внешний цикл для смены дней
+            System.out.println("День " + i);
+            for (int j = 1; j <= run; j++) { // вложенный цикл для пробежек с новой переменной
+                System.out.println("  Пробежка " + j);
             }
-
         }
-        System.out.println("Общая стоимость за " + totalMonths + " месяцев: " + totalCost + " руб.");
     }
 }
