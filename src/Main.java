@@ -15,6 +15,7 @@ public class Main {
             } else {
                 totalCost += price;
             }
+
         }
         System.out.println("Общая стоимость за " + totalMonths + " месяцев: " + totalCost + " руб.");
     }
