@@ -3,31 +3,11 @@ public class Main {
     public static void main(String[] args) {
 
 
-        String [] stih = {"Kitaj",
-                "Отметить день рождения с друзьями",
-                "Обустроить рабочее место",
-                "Научиться вести бюджет",
-                "Divan",
-                "Поехать на музыкальный фестиваль",
-                "Попросить на работе один удалённый день в неделю",
-                "Заняться спортом",
-                "9",
-                "Начать внедрять zero waste-подходы в повседневную жизнь",
-                "Встречаться с друзьями не реже раза в неделю",
-                "Перестать есть в кровати"
-        };
+        String[] names = {"john", "denni", "petr", "donald"};
+        for (int i = 0; i < names.length; i++) {
+            System.out.println(names[i]);
+        }
 
-        // Поменяйте местами покупку дивана и поездку в Китай в три шага, используя swap
-        String swap = stih[0];
-        stih [0] = stih[4];
-        stih[4] = swap;
 
-        // Замените фразу "Поехать в Японию в отпуск" на "Поехать в Сочи в отпуск"
-        stih [8] = "Поехать в Сочи в отпуск";
-
-        System.out.println("Изменения в планах:");
-        System.out.println("1. " + stih[0]);
-        System.out.println("5. " + stih[4]);
-        System.out.println("swap " + swap);
     }
 }
