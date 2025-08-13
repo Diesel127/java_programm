@@ -1,76 +1,56 @@
 import java.util.Scanner;
+
 public class Main {
+
     public static void main(String[] args) {
+
+        System.out.println("Вас приветствует список покупок!");
+
+        int currentListSize = 8;
+        String[] shoppingList = new String[currentListSize];
+        int productCount = 0;
 
         Scanner scanner = new Scanner(System.in);
 
-        boolean isTrafficLightGreen = false;
+        while (true) {
+            System.out.println("Выберите одну из команд:");
+            System.out.println("1. Добавить товар в список");
+            System.out.println("2. Отобразить список");
+            System.out.println("3. Очистить список");
+            System.out.println("4. Завершить программу");
 
-        boolean isVehicleApproaching = false;
+            int actionNumber = scanner.nextInt();
 
-        System.out.println("Вы находитесь около пешеходного перехода (да/нет)?");
-        String onCrosswalk = scanner.nextLine();
-        boolean isOnCrosswalk = onCrosswalk.equalsIgnoreCase("да"); // проверьте, ответил ли пользователь утвердительно
-
-        if (isOnCrosswalk) {
-            // Если пешеход находится на пешеходном переходе:
-            System.out.println("Горит ли зелёный сигнал светофора (да/нет)?");
-            String trafficLightGreen = scanner.nextLine();
-            isTrafficLightGreen = trafficLightGreen.equalsIgnoreCase("да");
-            if (!isTrafficLightGreen) {
-                // Если светофор красный:
-                System.out.println("Не переходите дорогу на красный свет светофора!");
-            }
-        }
-        // Если к пешеходу приближается транспортное средство:
-        System.out.println("Видите ли вы приближающиеся автомобили (да/нет)?");
-        String vehicleApproaching = scanner.nextLine();
-        isVehicleApproaching = vehicleApproaching.equalsIgnoreCase("да");
-        if (isVehicleApproaching) {
-            System.out.println("Дождитесь, пока проедет транспортное средство!");
-        }
-
-
-        boolean isSafePlace = false;
-
-        if(!isSafePlace) {
-            // Проверка на перебежку дороги в небезопасном месте:
-            System.out.println("Находится ли вблизи вас поворот (П), остановка (А), перекрёсток (Х) или нет?");
-            String unsafePlaceType = scanner.nextLine();
-            switch (unsafePlaceType) {
-                case "П":
-                    System.out.println("Не перебегайте дорогу вблизи поворотов!");
-                    break;
-                case "Х":
-                    System.out.println("Не перебегайте дорогу вблизи перекрестков!");
-                    break;
-                case "А":
-                    System.out.println("Не перебегайте дорогу вблизи остановок общественного транспорта!");
-                    break;
-                default:
-                    isSafePlace = true;
-
-            }
-        }
-
-        if(isSafePlace) {
-            System.out.println("Вы можете перейти дорогу!");
-            System.out.println("Сколько полос движения на дороге?");
-            int linesCount = scanner.nextInt();
-            if(linesCount == 1){
-                System.out.println("Посмотрите в обе стороны и переходите.");
-            } else {
-                int halfWay = linesCount/2;
-                for(int line = 1; line <= halfWay; line++){
-                    if(line < halfWay){
-                        System.out.println("Посмотрите налево и переходите.");
-                    } else {
-                        System.out.println("Посмотрите направо и переходите.");
+            if (actionNumber == 1) {
+                if (shoppingList.length == productCount) {
+                    int newListSize = currentListSize*2;
+                    String[] newShoppingList = new String[newListSize];
+                    for (int i = 0; i < productCount; i++) {
+                        newShoppingList[i] = shoppingList[i];
                     }
+                    shoppingList = newShoppingList;
+                    currentListSize = newListSize;
                 }
+                System.out.println("Введите название товара:");
+                String productName = scanner.next();
+                shoppingList[productCount] = productName;
+                productCount++;
+                System.out.println("Товар " + productName + " добавлен в список под номером " + productCount);
+            } else if (actionNumber == 2) {
+                for (int i = 0; i < productCount; i++) {
+                    System.out.println(i + 1 + ". " + shoppingList[i]);
+                }
+            } else if (actionNumber == 3) {
+                for (int i = 0; i < productCount; i++) {
+                    shoppingList[i] = null;
+                }
+                productCount = 0;
+                System.out.println("Список очищен!");
+            } else if (actionNumber == 4) {
+                break;
+            } else {
+                System.out.println("Неизвестная команда!");
             }
-        } else {
-            System.out.println("Вы не можете перейти дорогу в этом месте!");
         }
     }
 }
