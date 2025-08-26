@@ -1,20 +1,42 @@
-
-
 public class Main {
 
     public static void main(String[] args) {
-        double[] expenses = {1772.5, 367.0, 120.6, 2150.2, 874.0, 1.0, 1459.4};
-        double maxExpense = findMaxExpense(expenses); // вызовите метод и присвойте maxExpense значение его результата
-        System.out.println("Самая большая трата недели " + maxExpense);
+        double[] feedExpensesCat = {100.50, 236.0, 510.6, 150.20, 80.0, 172.0, 135.4};
+        double[] feedExpensesHamster = {70.50, 146.0, 710.6, 250.20, 83.0, 19.0, 55.4};
+
+        sayHello("Пиксель");
+        sayEnjoyMeal("Пиксель");
+        System.out.println("Твой самый дорогой корм стоил " + findMaxExpense(feedExpensesCat));
+        System.out.println("Всего на корм было потрачено " + findExpensesSum(feedExpensesCat));
+
+        sayHello("Байт");
+        sayEnjoyMeal("Байт");
+        System.out.println("Твой самый дорогой корм стоил " + findMaxExpense(feedExpensesHamster));
+        System.out.println("Всего на корм было потрачено " + findExpensesSum(feedExpensesHamster));
+    }
+    public static void sayHello (String name){
+        System.out.println("Привет, " + name);
     }
 
-    public static double findMaxExpense(double[] expenses) { // объявите метод findMaxExpense
-        double maxExpense = expenses[0];
-        for (double expens : expenses) {
-            if (expens > maxExpense) {
-                maxExpense = expens;
+    public static double findMaxExpense (double [] expenses){
+        double maxFeedExpense = 0;
+        for (int i = 0; i < expenses.length; i++) {
+            if (expenses[i] > maxFeedExpense) {
+                maxFeedExpense = expenses[i];
             }
         }
-        return maxExpense;
+        return maxFeedExpense;
+    }
+
+    public static double findExpensesSum (double [] expenses){
+        double sumFeed = 0;
+        for (int i = 0; i < expenses.length; i++) {
+            sumFeed = sumFeed + expenses[i];
+        }
+        return sumFeed;
+    }
+
+    public static void sayEnjoyMeal (String name){
+        System.out.println("Приятного аппетита, " + name);
     }
 }
