@@ -10,9 +10,9 @@ public class Main {
 
     public static double findMaxExpense(double[] expenses) { // объявите метод findMaxExpense
         double maxExpense = expenses[0];
-        for (int i = 0; i < expenses.length; i++) {
-            if (expenses[i] > maxExpense) {
-                maxExpense = expenses[i];
+        for (double expens : expenses) {
+            if (expens > maxExpense) {
+                maxExpense = expens;
             }
         }
         return maxExpense;
